@@ -1,0 +1,30 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Text;
+
+namespace Dominio
+{
+    public class ActorDirector
+    {
+        [Key]
+        public int ActorDirectorID { get; set; }
+        public string Nombre { get; set; }
+       
+        public bool EsActor { get; set; }
+        public bool EsDirector { get; set; }
+
+        public string? urlFoto { get; set; }
+        [NotMapped]
+        public byte[] FotoActorDirector { get; set; }
+
+        [NotMapped]
+        public bool Seleccionado { get; set; }
+
+
+        ICollection<PeliculaActor> Peliculalnk { get; set; }
+        ICollection<PeliculaDirector> PeliculaDirectorlnk { get; set; }
+
+    }
+}
